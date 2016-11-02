@@ -21,6 +21,10 @@
             android:name=".AddTaskActivity"
             android:label="@string/title_activity_add_task" >
         </activity>
+        <activity
+            android:name=".DisplayDetailsActivity"
+            android:label="@string/title_activity_display_details" >
+        </activity>
     </application>
 
 </manifest>

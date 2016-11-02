@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Task> tasksList = new ArrayList<>();
+    public static List<Task> tasksList = new ArrayList<>();
     private List<String> tasksTitle = new ArrayList<>();
     private RecyclerView recyclerView;
     private TaskAdapter mAdapter;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        tasksList = new TaskDatabase(this).getAllTasks();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
@@ -38,9 +39,29 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerDecoration(this, LinearLayoutManager.VERTICAL));
+
+        recyclerView.addOnItemTouchListener(new RecyclerClickListener(getApplicationContext(), recyclerView, new RecyclerClickListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                // Task task = tasksList.get(position);
+                Intent displayIntent = new Intent(getApplicationContext(), DisplayDetailsActivity.class);
+                displayIntent.putExtra("position", position);
+                startActivity(displayIntent);
+                // Toast.makeText(getApplicationContext(), task.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+
         recyclerView.setAdapter(mAdapter);
 
-        prepareTaskData();
+        //prepareTaskData();
+        System.out.println("list of tasks is:" + tasksList);
+        mAdapter.notifyDataSetChanged();
     }
 
     /*
@@ -49,13 +70,13 @@ public class MainActivity extends AppCompatActivity {
     private void prepareTaskData() {
 
         Task task = new Task();
-        tasksTitle = new TaskDatabase(this).getAllTasksTitles();
-        System.out.println("list of tasks is:" + tasksTitle);
-        for (int i=0; i<tasksTitle.size(); i++) {
-            System.out.println("title is:" + tasksTitle.get(i));
-            task = new Task(tasksTitle.get(i));
-            tasksList.add(task);
-        }
+        tasksList = new TaskDatabase(this).getAllTasks();
+        System.out.println("list of tasks is:" + tasksList);
+//        for (int i=0; i<tasksTitle.size(); i++) {
+//            System.out.println("title is:" + tasksTitle.get(i));
+//            task = new Task(tasksTitle.get(i));
+//            tasksList.add(task);
+//        }
 //        while(tasks!=null)
 //        {
 //            String[] separated = tasks.split("\n");

@@ -64,14 +64,15 @@ public class TaskDatabase extends SQLiteOpenHelper {
     }
 
     //Calling for retreiving task titles from table Tasks...
-    public List<String> getAllTasksTitles() {
+    public List<Task> getAllTasks() {
         Cursor cursor = getReadableDatabase().rawQuery("SELECT  * FROM tasks", null);
         //String taskList = BuildConfig.FLAVOR;
-        List<String> tasksList = new ArrayList<>();
+        List<Task> tasksList = new ArrayList<>();
        // tasksList = BuildConfig.FLAVOR;
         if (cursor.moveToFirst()) {
             do {
-                tasksList.add(cursor.getString(0));
+                Task  task = new Task(cursor.getString(0) , cursor.getString(1));
+                tasksList.add(task);
                 //taskList = taskList + cursor.getString(0) + "\n";
             } while (cursor.moveToNext());
         }
