@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class DisplayDetailsActivity extends ActionBarActivity {
@@ -53,5 +56,20 @@ public class DisplayDetailsActivity extends ActionBarActivity {
     //Returning to home page
     public void onBack(View view) {
         startActivity(new Intent(this, MainActivity.class));
+    }
+
+    //Function for deleting task
+    public void onDelete(View view)
+    {
+        String taskTitle = ((TextView) findViewById(R.id.title)).getText().toString();
+        System.out.println("task title:" + taskTitle);
+
+        String taskDesc = ((TextView) findViewById(R.id.details)).getText().toString();
+        System.out.println("task title:" + taskDesc);
+
+        new TaskDatabase(this).taskDelete(taskTitle, taskDesc);
+        Toast.makeText(this,"Task has been deleted successfully!!!" ,Toast.LENGTH_SHORT ).show();
+
+
     }
 }

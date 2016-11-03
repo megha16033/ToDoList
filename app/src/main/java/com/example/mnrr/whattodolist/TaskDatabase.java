@@ -91,10 +91,10 @@ public class TaskDatabase extends SQLiteOpenHelper {
 //        return movieList;
 //    }
 //
-//    public void movieDelete(String movie)
-//    {
-//        getWritableDatabase().execSQL("Delete from movies where name =\"" + movie+"\"");
-//
-//    }
+    public void taskDelete(String taskname,String taskdesc)
+    {
+        getWritableDatabase().execSQL("Delete from tasks where title =\"" + taskname+"\" and description=\"" + taskdesc+"\"");
+
+    }
 }
 

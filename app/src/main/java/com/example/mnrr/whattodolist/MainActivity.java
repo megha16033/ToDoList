@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 // Task task = tasksList.get(position);
+
+
                 Intent displayIntent = new Intent(getApplicationContext(), DisplayDetailsActivity.class);
                 displayIntent.putExtra("position", position);
                 startActivity(displayIntent);
@@ -129,4 +131,10 @@ public class MainActivity extends AppCompatActivity {
         Intent addTaskIntent = new Intent(this, AddTaskActivity.class);
         startActivity(addTaskIntent);
     }
+
+    //
+    public void onBack(View view) {
+        Toast.makeText(this,"HEY HARRY",Toast.LENGTH_SHORT).show();
+    }
+
 }
