@@ -6,8 +6,6 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-
     <RelativeLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -16,13 +14,30 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/backbutton"
+                android:layout_gravity="left"
+                android:onClick="onHomeTask"
+                />
+        </android.support.v7.widget.Toolbar>
+
         <TextView
             android:id="@+id/title"
             android:text="Task Title"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="#25383C"
             android:layout_width="match_parent"
+            android:layout_below="@+id/toolbar"
             android:textSize="25sp" />
 
         <EditText
@@ -36,7 +51,7 @@
             android:id="@+id/details"
             android:layout_below="@+id/titlename"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
             android:textColor="#25383C"
             android:text="Description"
             android:layout_width="match_parent"
@@ -50,26 +65,15 @@
             android:layout_width="match_parent" />
 
         <Button
-            android:background="#ff55a7fa"
+            android:background="?attr/colorPrimary"
             android:id="@+id/add"
             android:layout_below="@+id/taskdetails"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_width="wrap_content"
             android:onClick="onAddTask"
-            android:text="@string/Add" />
-
-        <Button
-            android:background="#fffa80d9"
-            android:id="@+id/home"
-            android:layout_below="@+id/add"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:layout_width="wrap_content"
-            android:onClick="onHomeTask"
-            android:text="Home" />
-
-
+            android:text="@string/Add"
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 </ScrollView>
