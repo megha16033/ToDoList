@@ -70,6 +70,10 @@ public class DisplayDetailsActivity extends ActionBarActivity {
         new TaskDatabase(this).taskDelete(taskTitle, taskDesc);
         Toast.makeText(this,"Task has been deleted successfully!!!" ,Toast.LENGTH_SHORT ).show();
 
+        ((TextView) findViewById(R.id.title)).setText("");
+        ((TextView) findViewById(R.id.details)).setText("");
+
+        startActivity(new Intent(this, MainActivity.class));
 
     }
 }

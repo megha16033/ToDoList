@@ -65,7 +65,13 @@ public class AddTaskActivity extends ActionBarActivity {
             System.out.println("value of res is:" + res);
             Toast.makeText(this, " Task added in the list", Toast.LENGTH_SHORT).show();
 
+            ((EditText) findViewById(R.id.titlename)).setText("");
+            ((EditText) findViewById(R.id.taskdetails)).setText("");
+
         }
+
+        startActivity(new Intent(this, MainActivity.class));
+
     }
 
 
