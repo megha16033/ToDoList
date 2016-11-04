@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -55,7 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLongClick(View view, int position) {
-
+//                String taskTitle = ((TextView) findViewById(R.id.title)).getText().toString();
+//                System.out.println("task title:" + taskTitle);
+//
+//                String taskDesc = ((TextView) findViewById(R.id.details)).getText().toString();
+//                System.out.println("task title:" + taskDesc);
+//
+//                new TaskDatabase(this).taskDelete(taskTitle, taskDesc);
+//                Toast.makeText(this,"Task has been deleted successfully!!!" ,Toast.LENGTH_SHORT ).show();
+//
+//                startActivity(new Intent(this, MainActivity.class));
             }
         }));
 

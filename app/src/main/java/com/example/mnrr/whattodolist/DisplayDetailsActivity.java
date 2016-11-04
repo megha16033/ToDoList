@@ -1,5 +1,7 @@
 package com.example.mnrr.whattodolist;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -61,19 +63,36 @@ public class DisplayDetailsActivity extends ActionBarActivity {
     //Function for deleting task
     public void onDelete(View view)
     {
-        String taskTitle = ((TextView) findViewById(R.id.title)).getText().toString();
-        System.out.println("task title:" + taskTitle);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Are you sure,You want to delete this task?");
 
-        String taskDesc = ((TextView) findViewById(R.id.details)).getText().toString();
-        System.out.println("task title:" + taskDesc);
+        alertDialogBuilder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                String taskTitle = ((TextView) findViewById(R.id.title)).getText().toString();
+                System.out.println("task title:" + taskTitle);
 
-        new TaskDatabase(this).taskDelete(taskTitle, taskDesc);
-        Toast.makeText(this,"Task has been deleted successfully!!!" ,Toast.LENGTH_SHORT ).show();
+                String taskDesc = ((TextView) findViewById(R.id.details)).getText().toString();
+                System.out.println("task title:" + taskDesc);
 
-        ((TextView) findViewById(R.id.title)).setText("");
-        ((TextView) findViewById(R.id.details)).setText("");
+                new TaskDatabase(getApplicationContext()).taskDelete(taskTitle, taskDesc);
+                Toast.makeText(getApplicationContext(), "Task has been deleted successfully!!!", Toast.LENGTH_SHORT).show();
 
-        startActivity(new Intent(this, MainActivity.class));
+                ((TextView) findViewById(R.id.title)).setText("");
+                ((TextView) findViewById(R.id.details)).setText("");
 
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+              //  finish();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

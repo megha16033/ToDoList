@@ -67,10 +67,10 @@ public class AddTaskActivity extends ActionBarActivity {
 
             ((EditText) findViewById(R.id.titlename)).setText("");
             ((EditText) findViewById(R.id.taskdetails)).setText("");
+            startActivity(new Intent(this, MainActivity.class));
 
         }
 
-        startActivity(new Intent(this, MainActivity.class));
 
     }
 
