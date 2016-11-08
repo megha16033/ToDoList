@@ -35,6 +35,7 @@ public class DisplayDetailsActivity extends ActionBarActivity {
 
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("");
 
         mViewPager.setAdapter(new CustomPagerAdapter(this));
         mViewPager.setCurrentItem(position);
@@ -43,7 +44,7 @@ public class DisplayDetailsActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_display_details, menu);
+        //getMenuInflater().inflate(R.menu.menu_display_details, menu);
         return true;
     }
 

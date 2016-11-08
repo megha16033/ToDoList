@@ -24,12 +24,13 @@ public class AddTaskActivity extends ActionBarActivity {
 
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setTitle("");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_add_task, menu);
+        //getMenuInflater().inflate(R.menu.menu_add_task, menu);
         return true;
     }
 
