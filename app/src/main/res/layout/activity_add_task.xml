@@ -18,13 +18,13 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary">
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/backbutton"
-                android:layout_gravity="left"
-                android:onClick="onHomeTask"
-                />
+            <!--<ImageButton-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@drawable/backbutton"-->
+                <!--android:layout_gravity="left"-->
+                <!--android:onClick="onHomeTask"-->
+                <!--/>-->
         </android.support.v7.widget.Toolbar>
 
         <TextView

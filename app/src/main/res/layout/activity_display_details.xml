@@ -15,13 +15,13 @@
 
 
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/backbutton"
-            android:layout_gravity="left"
-            android:onClick="onBack"
-            />
+        <!--<ImageButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@drawable/backbutton"-->
+            <!--android:layout_gravity="left"-->
+            <!--android:onClick="onBack"-->
+            <!--/>-->
 
         <ImageButton
         android:layout_width="wrap_content"
